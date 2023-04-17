@@ -1,0 +1,11 @@
+.footer-wrap {
+  width: 80%;
+  height: 7vh;
+  margin: 0 auto;
+}
+
+#footer-content {
+  height: 20px;
+  font-size: 12px;
+  vertical-align: middle;
+}

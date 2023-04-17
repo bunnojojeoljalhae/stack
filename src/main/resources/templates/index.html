@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <script>
+        function spotifyLogin() {
+            const url = 'https://accounts.spotify.com/authorize' +
+            query string.stringify({
+                response_type: 'code',
+                client_id: '3d5cd16b457b4b568c8e6a3fc0943a86',
+<!--                client_id: spotify_client_id,-->
+                scope: 'user-read-private playlist-read-private playlist-modify-public user-library-read user-read-recently-played streaming',
+<!--                scope: spotify_scope,-->
+                redirect_uri: 'http://localhost:8088/callback'
+            })
+            window.location.href = url
+            console.log(url);
+        }
+    </script>
+</head>
+<body onload="spotifyLogin()">
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+    <div class="container">
+        <a class="navbar-brand h1-responsive display-4 heading-main" href="#">Spotify Data</a>
+    </div>
+</nav>
+<div class="justify-content-center text-center button-action">
+    <a type="button" th:href="@{${url}}" class="btn btn-success btn-custom btn-lg btn-rounded waves-effect">Get Started</a>
+    <div>
+        <a class="text-white" type="button" data-toggle="modal" data-target="#modalDetails" style="text-decoration: underline">What It Does?</a>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modalDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md modal-notify modal-success" role="document">
+        <div class="modal-content text-center">
+            <div class="modal-header d-flex justify-content-center">
+                <p class="heading">What Can Spotify Data Do?</p>
+            </div>
+
+            <div class="modal-body">
+                <div class="container text-left">
+                    <div class="font-weight-bold text-left">
+                        <div>Show Your Top Played Tracks/Artists</div>
+                        <ul>
+                            <li>Of All Time</li>
+                            <li>From Past 6 Months</li>
+                            <li>From Past Month</li>
+                        </ul>
+                    </div>
+                    <div class="font-weight-bold" style="margin-top: -10px">Your Saved Tracks</div>
+                    <div class="font-weight-bold">Your Saved Albums</div>
+                    <div class="font-weight-bold">Your Recent Played Tracks</div>
+                    <div class="font-weight-bold">New Releases</div>
+                    <div class="font-weight-bold">Featured Playlists</div>
+                    <div class="font-weight-bold">Current Playing Track</div>
+                    <div class="font-weight-bold">Search Tracks/Artists/Playlists</div>
+                </div>
+            </div>
+            <div class="modal-footer flex-center">
+                <a data-dismiss="modal" class="btn  btn-outline-success">Ok</a>
+                <a type="button" class="btn  btn-success waves-effect" data-toggle="modal" data-target="#modalVideo">Sample Video</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="modalVideo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+
+        <div class="modal-content">
+
+            <div class="modal-body mb-0 p-0">
+
+                <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+                    <iframe class="embed-responsive-item" src="video/sample.mp4" allowfullscreen></iframe>
+                </div>
+
+            </div>
+
+            <div class="modal-footer justify-content-center flex-column flex-md-row text-center">
+                <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+    <!--<p>-->
+    <!--    <span th:text="${hello}">Hello!</span>-->
+    <!--</p>-->
+    <p>Spotify로 시작하기</p>
+    <p>Login to spotify</p>
+    <!--<a href="https://accounts.spotify.com/authorize?scope=user-read-private playlist-read-private playlist-modify-public user-library-read user-read-recently-played streaming app-remote-control&response_type=code&redirect_uri=http://localhost:8088/login/oauth2/code/spotify&client_id=3bd4697642864c61b15c7385652cd7b4">-->
+    <!--<a href="https://accounts.spotify.com/authorize?response_type=code&client_id=31ubbhkxl5jmyylmqiwilffjmzde&scope=user-read-email user-read-private&redirect_uri=http://localhost:8088/login/oauth2/code/spotify">
+        click here to redirect to Spotify Web App (where you would authorize this application to get a token to interact with spotify on your behalf)
+    </a>-->
+    <a th:href="@{/login}">
+        click here to redirect to Spotify Web App (where you would authorize this application to get a token to interact with spotify on your behalf)
+    </a>
+    <br>
+    <a href="home">
+        HOME
+    </a>
+</body>
+</html>

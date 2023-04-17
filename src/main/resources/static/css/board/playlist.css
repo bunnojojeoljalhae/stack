@@ -1,0 +1,248 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,500;1,600;1,700;1,800;1,900&display=swap");
+/*-----------------------------
+  스크롤바 없앰
+-----------------------------*/
+body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}
+
+/*-----------------------------
+article
+-----------------------------*/
+article {
+  background-color: rgb(25, 25, 25);
+  width: 100%;
+  min-height: 100vh;
+  max-height: max-content;
+}
+
+.article-wrap {
+  width: 80%;
+  height: auto;
+  background-color: rgb(25, 25, 25);
+  margin: 0 auto;
+}
+
+.empty {
+  width: 100%;
+  height: 6vh;
+}
+
+.playlist {
+  width: 100%;
+  height: 40vh;
+  overflow: hidden;
+}
+
+.img-blur {
+  position: absolute;
+  width: 100%;
+  height: 40vh;
+  background-color: rgba(41, 41, 41, 0.445);
+
+  z-index: 50;
+}
+
+#repre-img {
+  width: 120%;
+  height: 45vh;
+  background-color: blue;
+  background-image: url(../../images/background/magicpattern-87PP9Zd7MNo-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(10px);
+  margin: 0 auto;
+}
+
+.ex-playlist {
+  position: absolute;
+  z-index: 100;
+  left: 50%;
+  top: 15%;
+  transform: translateX(-50%);
+}
+
+#ex-title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.ex-tag {
+  width: 100%;
+  height: 30px;
+}
+
+.ex-tag a {
+  width: 100px;
+  height: 20px;
+  line-height: 180%;
+  display: inline-block;
+  font-weight: 500;
+}
+
+/*-----------------------------
+  article > section (search)
+-----------------------------*/
+.search-music-wrap {
+  width: 100%;
+  height: 15vh;
+  border-bottom: 1px dotted rgba(253, 93, 0, 0.384);
+  display: inline-block;
+}
+
+.search-music {
+  width: 50%;
+  height: 30px;
+  background-color: rgba(214, 214, 214, 0.116);
+  border-radius: 2em;
+  padding: 10px 0;
+  margin: 0 auto;
+  margin-top: 45px;
+}
+
+.search-music > form > ul li {
+  display: inline-block;
+}
+
+.search-music > form > ul li > input [type="text" i] {
+  width: 200px;
+  height: 25px;
+  background-color: transparent;
+  background-color: rgba(240, 248, 255, 0);
+}
+
+.search-music > form > ul > li > input [type="text"],
+.search-music-btn {
+  display: inline-block;
+}
+
+/*-----------------------------
+  article > section (reply)
+-----------------------------*/
+.reply-music-wrap {
+  width: 100%;
+  display: inline-block;
+}
+
+.reply-music-before {
+  position: relative;
+  width: 100%;
+  height: 7vh;
+  /* background-color: aqua; */
+  border-bottom: 1px dotted rgba(253, 93, 0, 0.384);
+  padding: 10px 0;
+  margin-top: 20px;
+}
+
+.reply-music {
+  position: relative;
+  width: 100%;
+  height: 25vh;
+  /* background-color: aqua; */
+  padding: 5px 0;
+}
+
+.reply-writer-info span,
+.music-info span {
+  height: 22px;
+  display: inline-block;
+  font-family: "Raleway", sans-serif;
+  color: white;
+}
+
+.thumnail {
+  width: 320px;
+  height: 200px;
+  margin-right: 20px;
+  background-color: antiquewhite;
+}
+
+.thumnail,
+.music-info {
+  display: inline-block;
+}
+
+#plus-btn {
+  fill: white;
+}
+
+/*-----------------------------
+  article > section (before)
+-----------------------------*/
+.reply-writer-info-before,
+.music-info-before {
+  width: fit-content;
+  vertical-align: middle;
+}
+
+.music-info-before a {
+    display: block;
+    font-family: "Raleway", sans-serif;
+    color: white;
+}
+
+.music-thumnail {
+    width: 60px;
+    height: 60px;
+    margin-right: 40px;
+    background-color: cyan;
+}
+
+.reply-writer-info-before span {
+  display: inline-block;
+  font-family: "Raleway", sans-serif;
+  color: white;
+}
+
+.profile-before {
+  width: 300px;
+  /* height: 55px; */
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.profile-before span {
+  margin: 11px 0;
+}
+
+#profile-img-before {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 0 15px;
+  background-color: antiquewhite;
+}
+.music-info span {
+  display: block;
+}
+
+.profile-before,
+.music-info-before {
+  display: inline-flex;
+}
+
+.add-playlist-before {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  float: right;
+  right: 0;
+  display: inline-flex;
+}
+
+#more-btn {
+  fill: white;
+}
+
+.add-playlist {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  float: right;
+  right: 0;
+}

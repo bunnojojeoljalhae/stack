@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html
+        lang="en"
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>stackpli all</title>
+    <link rel="stylesheet" href="/static/css/common/global.css" />
+    <link rel="stylesheet" href="/static/css/board/playListAll.css" />
+  </head>
+  <body>
+      <!-- header -->
+      <div th:replace="common/header.html :: header"></div>
+
+      <main>
+          <section>
+              <div id="alllist-title">
+                  <span>모두의 플레이리스트</span>
+              </div>
+          </section>
+
+          <article>
+              <div class="article-wrap" th:each="playlist: ${playlists.playlists.items}">
+                  <div class="pli-no">
+                      <span>no. 01</span>
+                  </div>
+                  <div class="text-wrap">
+                      <a class="main-content title" href="">PLAYLIST TITLE</a>
+                      <div class="main-content content">
+                          <p class="explain">Step up! Hello. We are Stray Kids.</p>
+                      </div>
+                  </div>
+                  <div class="hash">
+                      <span>#hash</span><span>#hash</span><span>#hash</span>
+                  </div>
+                  <div class="pli-writer">
+                      <span></span><span>writer</span>
+                  </div>
+                  <div class="more-btn">
+                      <button>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                              <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                          </svg>
+                      </button>
+                  </div>
+              </div>
+          </article>
+      </main>
+
+
+      <!-- footer -->
+      <div th:replace="common/footer.html :: footer"></div>
+  </body>
+</html>

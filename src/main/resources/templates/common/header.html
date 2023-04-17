@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<th:block th:fragment="header">
+  <head>
+    <meta charset="UTF-8" />
+    <title>HEADER</title>
+    <link rel="stylesheet" href="/css/common/global.css" />
+    <link rel="stylesheet" href="/css/common/header.css" />
+      <script>
+        function spotifyLogin() {
+            const url = 'https://accounts.spotify.com/authorize' +
+            query string.stringify({
+                response_type: 'code',
+                client_id: '3d5cd16b457b4b568c8e6a3fc0943a86',
+<!--                client_id: spotify_client_id,-->
+                scope: 'user-read-private playlist-read-private playlist-modify-public user-library-read user-read-recently-played streaming',
+<!--                scope: spotify_scope,-->
+                redirect_uri: 'http://localhost:8088/callback'
+            })
+            window.location.href = url
+            console.log(url);
+        }
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="header-wrap">
+          <div id="logo"><a id="playlist" href="/home">STACKPLI</a></div>
+        <ul id="menu">
+<!--
+            <li id="search">
+                <div class="search-wrap">
+                    <form action="search" method="post">
+                        <input type="text" placeholder="Search..." name="searchKey">
+                        <button>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </li>
+-->
+
+          <li id="menu-btn">
+            <a style="cursor: pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                    <path fill="rgb(42,43,43)" fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                </svg>
+            </a>
+            <ul id="sub-menu">
+
+                <li class="nav"><a class="nav-text" th:href="@{/board/list}">TODAY'S PLAYLIST</a></li>
+                <li class="nav"><a class="nav-text" th:href="@{/featuredPlaylist}">COPLAYLIST</a></li>
+<!--                <li class="nav"><a class="nav-text" href="/featuredPlaylists">COPLAYLIST</a></li>-->
+<!--                <li class="nav"><a class="nav-text">COPLAYLIST</a></li>-->
+                <li class="nav"><a class="nav-text" th:href="@{/featured-playlists}">MY PLAYLIST</a></li>
+                <li th:if="${userName == null || userName == ''}" class="nav">
+                    <a class="nav-text" th:href="@{${url}}">Login</a>
+                    <!--<a class="nav-text" sec:user="isAnonymous()" href="https://accounts.spotify.com/authorize">Login</a>-->
+                </li>
+                <!--<li class="nav"><a class="nav-text" sec:user="isAnonymous()" href="/oauth2/authorization/spotify">Login</a></li>-->
+                <li th:if="${userName != null}" class="nav">
+                    <a sec:user="isAuthenticated()" class="nav-text" href="/user/logout">LogOut</a>
+                </li>
+                <li class="nav"><a sec:user="isAuthenticated()" class="nav-text" th:href="@{/v1/me}">MyPage</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
+  </body>
+</th:block>
+</html>

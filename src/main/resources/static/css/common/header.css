@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700;1,800;1,900&display=swap");
+
+/*-----------------------------
+  header
+-----------------------------*/
+header {
+    width: 100%
+    height: 8vh;
+    z-index: 99;
+}
+
+.header-wrap {
+  width: 80%;
+  height: 8vh;
+  vertical-align: middle;
+/*  position: absolute;*/
+  margin: 0 auto;
+/*  border: 1px dotted rgba(253, 93, 0, 0.384);*/
+  z-index: 99;
+}
+
+#logo {
+  width: 150px;
+  float: left;
+}
+
+#playlist {
+  /* color: white; */
+  color: rgb(242,92,17);
+  cursor: pointer;
+  font-size: 28px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+
+}
+
+#playlist:hover {
+  text-decoration: none;
+}
+
+#menu {
+    width: 250px;
+    text-align: right;
+    float: right;
+}
+
+#search {
+    width: 500px;
+    height: 30px;
+}
+
+.search-wrap {
+    width: 450px;
+    height: 30px;
+    background-color: rgb(180,180,150);
+    border-radius: 10px;
+}
+
+input[type= text] {
+    width: 350px;
+
+}
+
+
+#sub-menu {
+    width: 250px;
+    text-align: right;
+    position: absolute;
+    background: gray;
+    opacity: 0;
+    visibility: hidden;
+}
+
+#menu > li:hover #sub-menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+.nav-text {
+  font-size: 16px;
+  font-weight: 700;
+  font-family: "Raleway", sans-serif;
+}

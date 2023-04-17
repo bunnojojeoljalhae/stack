@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,500;1,600;1,700;1,800;1,900&display=swap");
+/*-----------------------------
+  스크롤바 없앰
+-----------------------------*/
+body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}
+
+/*-----------------------------
+article
+-----------------------------*/
+article {
+  background-color: rgb(25, 25, 25);
+  width: 100%;
+  min-height: 100vh;
+  max-height: max-content;
+}
+
+.write-info {
+    width: 80%;
+    height: 15vh;
+    margin: 0 auto;
+}
+
+.article-wrap {
+  width: 80%;
+  height: auto;
+  background-color: rgb(25, 25, 25);
+  margin: 0 auto;
+}
+
+.empty {
+  width: 100%;
+  height: 6vh;
+}
+
+.playlist {
+  width: 100%;
+  height: 40vh;
+  overflow: hidden;
+}
+
+.img-add-btn {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    right: 10%;
+    top: 50%;
+    z-index: 100;
+}
+
+.img-file-button{
+  padding: 6px 25px;
+  cursor: pointer;
+}
+
+#img-file {
+    display: none;
+}
+
+
+#repre-img {
+  width: 120%;
+  height: 45vh;
+  background-color: blue;
+  background-image: url(../../images/background/magicpattern-87PP9Zd7MNo-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+/*  filter: blur(10px);*/
+  margin: 0 auto;
+}
+
+.ex-playlist {
+  position: absolute;
+  z-index: 100;
+  left: 50%;
+  top: 25%;
+  transform: translateX(-50%);
+}
+
+#ex-title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.ex-tag {
+  width: 100%;
+  height: 30px;
+}
+
+.ex-tag a {
+  width: 100px;
+  height: 20px;
+  line-height: 180%;
+  display: inline-block;
+  font-weight: 500;
+}
+

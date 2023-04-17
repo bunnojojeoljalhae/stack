@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>callback fail</title>
+</head>
+<body>
+    <div class="justify-content-center text-center access-denied">
+        <div class="container">
+            <h1 class="h1-responsive access-denied-heading">Not Authorized</h1>
+            <h1 class="h3-responsive access-denied-sub-heading">Spotify Data Could Not Generate Page Without Auhthorization From A Valid Spotify Account</h1>
+        </div>
+    </div>
+    <div class="justify-content-center text-center button-action-2">
+        <a type="button" th:href="@{${url}}" class="btn btn-success btn-custom btn-lg btn-rounded waves-effect">Try Again</a>>
+    </div>
+
+</body>
+</html>

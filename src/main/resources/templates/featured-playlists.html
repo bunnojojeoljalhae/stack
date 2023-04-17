@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html
+        lang="en"
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+    <head>
+        <meta charset="UTF-8">
+        <title>playList write</title>
+        <link rel="stylesheet" type="text/css" href="/css/common/global.css"/>
+        <link rel="stylesheet" type="text/css" href="/css/board/playlistWrite.css"/>
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <!-- Material Design Bootstrap -->
+        <link rel="stylesheet" href="css/mdb.min.css">
+    </head>
+    <body>
+    <!-- header -->
+    <div th:replace="common/header.html :: header"></div>
+
+    <article>
+        <div class="write-info">
+            <div>
+<!--                <p>여기에 작성한 그대로 올라가게 됩니다.</p>-->
+            </div>
+        </div>
+
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+
+            <div class="container">
+                <a class="navbar-brand h1-responsive display-4 heading-main text-white">Spotify Data</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapseNav"
+                        aria-controls="collapseNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="collapseNav">
+                    <form class="form-inline pb-0" action="search" method="post">
+                        <div class="md-form my-0">
+                            <input class="form-control mr-sm-2" type="text" placeholder="Search..." name="searchQuery">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container container-username">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h3 class="h2 container-username-heading mx-auto">Featured Playlists</h3></div>
+                <div class="col-12 text-center mt-2">
+                    <a class="btn btn-success btn-rounded btn-sm mx-auto" type="button" href="/redirect">Go Back</a>
+                </div>
+            </div>
+            <hr class="hr bg-success">
+            <div >
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-6 my-2" th:each="playlist: ${playlists.playlists.items}">
+                        <div class="card" style="width:10.5rem; min-height:263px" th:attr="onclick=|openSpotifyLink('${playlist.external_urls.spotify}')|">
+                            <img class="card-img-top" src="https://i.scdn.co/image/ab67616d0000b273c450c89d3eb750d3535b0a0c" th:src="@{''+${playlist.images[0].url}+''}" alt="Card image cap">
+                            <div class="card-body text-center py-1">
+                                <p class="card-title text-dark font-weight-bold" th:text="${#strings.abbreviate(playlist.name,23)}">WAP (feat. Megan Thee Stallion)</p>
+                                <p th:text="'Tracks: '+${playlist.tracks.total}" class="card-title text-muted my-0">2020-08-07</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="article-wrap">
+            <div class="playlist">
+                <!-- <div class="img-blur"></div> -->
+                <div class="img-add-btn">
+                    <label class="img-file-button" for="img-file">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                             class="bi bi-plus-square" viewBox="0 0 16 16">
+                            <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                        </svg>
+                    </label>
+                    <input type="file" id="img-file"/>
+                </div>
+                <div id="repre-img"></div>
+                <div class="ex-playlist">
+                    <div id="ex-title"><input type="text" placeholder="WRITE TITLE"></div>
+                    <div id="ex-content">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur veritatis voluptate, explicabo
+                        exercitationem
+                        inventore ipsam ullam error rem! Architecto quo alias illum asperiores tempora? Iste eligendi fuga
+                        maxime numquam
+                        necessitatibus?
+                    </div>
+                    <div class="ex-tag">
+                        <a>#hashtag</a>
+                        <a>#hashtag</a>
+                        <a>#hashtag</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- footer -->
+    <div th:replace="common/footer.html :: footer"></div>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <!-- Your custom scripts (optional) -->
+    <script type="text/javascript">
+        //changing padding of navbar on scroll
+        $(window).scroll(function() {
+            let position = $(this).scrollTop();
+            if (position >= 100) {
+                $('.navbar').addClass('custom-navigation-bar');
+            } else {
+                $('.navbar').removeClass('custom-navigation-bar');
+            }
+        });
+
+        function openSpotifyLink(link){
+            window.open(link);
+        }
+    </script>
+    </body>
+</html>

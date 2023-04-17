@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/css/common/global.css" />
+    <link rel="stylesheet" href="/css/common/main.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="css/mdb.min.css">
+    <title>MAIN</title>
+    <script>
+      // Set a same-site cookie for first-party contexts
+      document.cookie = "cookie1=value1; SameSite=Lax";
+      // Set a cross-site cookie for third-party contexts
+      document.cookie = "cookie2=value2; SameSite=None; Secure";
+    </script>
+  </head>
+  <body>
+    <!-- header -->
+    <div th:replace="common/header.html :: header"></div>
+
+    <main>
+        <article id="explain">
+            <div class="explain-text">
+                <div th:if="${userName != null}">
+                    <span id="nickName">Hi! [[${userName}]] </span>
+                </div>
+<!--                <span>PLAYLIST</span>-->
+            </div>
+        </article>
+<!--        <article id="recommend">
+            <div class="article-wrap">
+                <ul id="recommend-pli">
+                    <li id="pli-title">
+                        <div id="pli-info">
+                            <a>TITLE</a>
+                            <span>노래 n곡</span>
+                        </div>
+                    </li>
+                    <li id="pli-from">
+                        <div id="pli-owner-info">
+                            <span>from. </span>
+                            <a>USERNAME</a>
+                        </div>
+                    </li>
+                    <li id="pli-list">
+                        <div class="songs-wrap">
+                            <div class="pli-songs">
+                                <div class="song-info">
+                                    <p>
+                                        가수 이름 나열.....
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div id="pli-thumnail">
+                        <div>thumnail1</div>
+                        <div>thumnail2</div>
+                        <div>thumnail3</div>
+                        <div>thumnail4</div>
+                </div>
+            </div>
+        </article>-->
+
+    </main>
+
+    <!-- footer -->
+    <div th:replace="common/footer.html :: footer"></div>
+    <!-- jQuery -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <!-- Your custom scripts (optional) -->
+    <script type="text/javascript">
+    </script>
+    <div th:if="${param.logout}">
+        <script type="text/javascript">
+            toastr["success"]("Successfully Logged Out!");
+
+        </script>
+    </div>
+
+  </body>
+</html>

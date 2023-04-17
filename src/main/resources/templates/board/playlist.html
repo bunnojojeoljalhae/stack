@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html
+        lang="en"
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>개별 글</title>
+    <link rel="stylesheet" href="/static/css/common/global.css" />
+    <link rel="stylesheet" href="/static/css/board/playlist.css" />
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="../static/js/playlist.js"></script>
+  </head>
+  <body>
+  <!-- header -->
+  <div th:replace="common/header.html :: header"></div>
+
+    <article>
+      <div class="empty">&nbsp;</div>
+      <div class="article-wrap">
+        <div class="playlist">
+          <!-- <div class="img-blur"></div> -->
+          <div id="repre-img"></div>
+          <div class="ex-playlist">
+            <div id="ex-title">EXPLAIN THIS PLAYLIST</div>
+            <div id="ex-content">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur veritatis voluptate, explicabo exercitationem
+              inventore ipsam ullam error rem! Architecto quo alias illum asperiores tempora? Iste eligendi fuga maxime numquam
+              necessitatibus?
+            </div>
+            <div class="ex-tag">
+              <a>#hashtag</a>
+              <a>#hashtag</a>
+              <a>#hashtag</a>
+            </div>
+          </div>
+        </div>
+
+        <section id="search">
+          <div class="search-music-wrap">
+            <div class="search-music">
+              <form autocomplete="off">
+                <ul>
+                  <li>추천 노래 검색</li>
+                  <li>
+                    <input type="text" placeholder="검색" />
+                    <div class="search-music-btn">
+                      <button type="submit" id="main-search-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16" >
+                          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                        </svg>
+                      </button>
+                    </div>
+                  </li>
+                </ul>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <section id="reply">
+          <div id="reply-wrap">
+            <div class="reply-music-wrap-before">
+              <div class="reply-music-before">
+                <div class="profile-before">
+                  <div id="profile-img-before">&nbsp;</div>
+                  <div class="reply-writer-info-before">
+                    <span>reply writer</span>
+                    <span>2022.11.21</span>
+                  </div>
+                </div>
+
+                <div class="music-info-before">
+                    <div class="music-thumnail"><img></div>
+                    <div class="music-info">
+                        <a>제목(뮤직이면 노래 제목이겠지)</a>
+                        <a>가수 이름</a>
+                    </div>
+                </div>
+
+                <div class="add-playlist-before">
+                  <button onclick="replyFormChange()">
+                      <span>add playlist</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(200, 200, 200)" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                          <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+                      </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </article>
+
+
+    <!-- footer -->
+  <div th:replace="common/footer.html :: footer"></div>
+  </body>
+</html>
